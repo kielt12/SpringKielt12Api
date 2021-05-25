@@ -16,12 +16,12 @@ public class CardController {
         this.cardService = cardService;
     }
 
-    @GetMapping(path = "todo")
+    @GetMapping(path = "get-module")
     public List<Card> getTodo() {
         return cardService.getTodo();
     }
 
-    @PostMapping(path = "settodo")
+    @PostMapping(path = "set-module")
     public void addTodo(@RequestBody Card card){
         cardService.addTodo(card);
     }

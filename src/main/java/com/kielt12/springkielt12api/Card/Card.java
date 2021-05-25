@@ -1,6 +1,8 @@
 package com.kielt12.springkielt12api.Card;
 
 
+import org.springframework.lang.NonNull;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -17,44 +19,46 @@ public class Card {
             strategy = GenerationType.SEQUENCE,
             generator = "card_sequence"
     )
+
     private Long id;
     private String img;
     private String header;
+    @Lob
     private String paragraph;
+    private String github;
     @ElementCollection
     private List<String> icons;
-
-    public Card(Long id, String img, String header, String paragraph, List<String> icons) {
-        this.id = id;
-        this.img = img;
-        this.header = header;
-        this.paragraph = paragraph;
-        this.icons = icons;
-    }
-
-    public Card(String img, String header, String paragraph, List<String> icons) {
-        this.img = img;
-        this.header = header;
-        this.paragraph = paragraph;
-        this.icons = icons;
-    }
-
-    public Card(Long id, String img, String header, String paragraph) {
-        this.id = id;
-        this.img = img;
-        this.header = header;
-        this.paragraph = paragraph;
-    }
-
-    public Card(String img, String header, String paragraph) {
-        this.img = img;
-        this.header = header;
-        this.paragraph = paragraph;
-    }
-
     public Card() {
 
     }
+
+    public Card(String img, String header, String paragraph, String github, List<String> icons) {
+        this.img = img;
+        this.header = header;
+        this.paragraph = paragraph;
+        this.github = github;
+        this.icons = icons;
+    }
+
+    public Card(Long id, String img, String header, String paragraph, String github, List<String> icons) {
+        this.id = id;
+        this.img = img;
+        this.header = header;
+        this.paragraph = paragraph;
+        this.github = github;
+        this.icons = icons;
+    }
+
+
+    public String getGithub() {
+        return github;
+    }
+
+    public void setGithub(String github) {
+        this.github = github;
+    }
+
+
 
     public List<String> getIcons() {
         return icons;
