@@ -16,6 +16,7 @@ public class CardController {
         this.cardService = cardService;
     }
 
+    @CrossOrigin
     @GetMapping(path = "get-module")
     public List<Card> getTodo() {
         return cardService.getTodo();
