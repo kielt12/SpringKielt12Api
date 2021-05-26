@@ -18,14 +18,26 @@ public class CardController {
 
     @CrossOrigin
     @GetMapping(path = "get-module")
-    public List<Card> getTodo() {
-        return cardService.getTodo();
+    public List<Card> getCard() {
+        return cardService.getCard();
     }
 
     @PostMapping(path = "set-module")
-    public void addTodo(@RequestBody Card card){
-        cardService.addTodo(card);
+    public void addCard(@RequestBody Card card){
+        cardService.addCard(card);
     }
+
+    @PutMapping(path ="api/put-module/{cardId}")
+    public void updateCard(@PathVariable ("cardId") long cardId,
+                           @RequestParam(required = false) String img,
+                           @RequestParam(required = false) String header,
+                           @RequestParam(required = false) String paragraph,
+                           @RequestParam(required = false) String github,
+                           @RequestParam(required = false) List<String> icons)
+            {
+        cardService.updateCard(cardId,img,header,paragraph,github,icons);
+    }
+
 
 
 
