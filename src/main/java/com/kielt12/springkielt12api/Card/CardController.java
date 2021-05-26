@@ -22,6 +22,7 @@ public class CardController {
         return cardService.getCard();
     }
 
+    @CrossOrigin
     @PostMapping(path = "set-module")
     public void addCard(@RequestBody Card card){
         cardService.addCard(card);
