@@ -29,13 +29,13 @@ public class CardController {
 
     @PutMapping(path ="api/put-module/{cardId}")
     public void updateCard(@PathVariable ("cardId") long cardId,
-                           @RequestParam(required = false) String img,
+                           @RequestParam(required = false) String image,
                            @RequestParam(required = false) String header,
                            @RequestParam(required = false) String paragraph,
                            @RequestParam(required = false) String github,
                            @RequestParam(required = false) List<String> icons)
             {
-        cardService.updateCard(cardId,img,header,paragraph,github,icons);
+        cardService.updateCard(cardId,image,header,paragraph,github,icons);
     }
 
 

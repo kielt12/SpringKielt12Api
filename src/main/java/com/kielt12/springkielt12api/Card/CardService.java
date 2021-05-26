@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
 
 @Service
 public class CardService {
@@ -30,7 +29,7 @@ public class CardService {
         if(card.getIcons() == null || card.getIcons().isEmpty()){
             throw new ApiRequestException("icon can not be empty");
         }
-        if(card.getImg() == null || card.getImg().isEmpty()){
+        if(card.getImage() == null || card.getImage().isEmpty()){
             throw new ApiRequestException("image can not be empty");
         }
         if(card.getParagraph() == null || card.getParagraph().isEmpty()){
@@ -42,10 +41,10 @@ public class CardService {
         cardRespository.save(card);
     }
     @Transactional
-    public void updateCard(long cardId, String img, String header, String paragraph, String github, List<String> icons) {
+    public void updateCard(long cardId, String image, String header, String paragraph, String github, List<String> icons) {
     Card card = cardRespository.findById(cardId).orElseThrow(()-> new IllegalStateException("card with id" + cardId + "does not exist"));
-        if(img != null && img.length() > 0 && !Objects.equals(card.getImg(),img)){
-            card.setImg(img);
+        if(image != null && image.length() > 0 && !Objects.equals(card.getImage(),image)){
+            card.setImage(image);
         }
 
         if(header != null && header.length() > 0 && !Objects.equals(card.getHeader(),header)){

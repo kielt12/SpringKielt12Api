@@ -1,8 +1,6 @@
 package com.kielt12.springkielt12api.Card;
 
 
-import org.springframework.lang.NonNull;
-
 import javax.persistence.*;
 import java.util.List;
 
@@ -21,7 +19,7 @@ public class Card {
     )
 
     private Long id;
-    private String img;
+    private String image;
     private String header;
     @Lob
     private String paragraph;
@@ -32,17 +30,17 @@ public class Card {
 
     }
 
-    public Card(String img, String header, String paragraph, String github, List<String> icons) {
-        this.img = img;
+    public Card(String image, String header, String paragraph, String github, List<String> icons) {
+        this.image = image;
         this.header = header;
         this.paragraph = paragraph;
         this.github = github;
         this.icons = icons;
     }
 
-    public Card(Long id, String img, String header, String paragraph, String github, List<String> icons) {
+    public Card(Long id, String image, String header, String paragraph, String github, List<String> icons) {
         this.id = id;
-        this.img = img;
+        this.image = image;
         this.header = header;
         this.paragraph = paragraph;
         this.github = github;
@@ -80,12 +78,12 @@ public class Card {
         return header;
     }
 
-    public String getImg() {
-        return img;
+    public String getImage() {
+        return image;
     }
 
-    public void setImg(String img) {
-        this.img = img;
+    public void setImage(String img) {
+        this.image = img;
     }
 
     public void setHeader(String todoText) {
@@ -104,7 +102,7 @@ public class Card {
     public String toString() {
         return "Card{" +
                 "id=" + id +
-                ", img='" + img + '\'' +
+                ", img='" + image + '\'' +
                 ", header='" + header + '\'' +
                 ", paragraph='" + paragraph + '\'' +
                 '}';
