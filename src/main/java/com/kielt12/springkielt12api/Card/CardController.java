@@ -28,6 +28,7 @@ public class CardController {
         cardService.addCard(card);
     }
 
+    @CrossOrigin
     @PutMapping(path ="api/put-module/{cardId}")
     public void updateCard(@PathVariable ("cardId") long cardId,
                            @RequestParam(required = false) String image,
