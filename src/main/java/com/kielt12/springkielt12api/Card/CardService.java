@@ -39,9 +39,6 @@ public class CardService {
             throw new ApiRequestException("github-Url can not be empty");
         }
 
-        if(card.getSite() == null || card.getSite().isEmpty()){
-            throw new ApiRequestException("site-Url can not be empty");
-        }
         cardRespository.save(card);
     }
     @Transactional
