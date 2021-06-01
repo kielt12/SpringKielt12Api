@@ -39,9 +39,10 @@ public class CardService {
             throw new ApiRequestException("github-Url can not be empty");
         }
 
-        if(card.getSite().equals( "null")){
-            card.setSite(null);
+        if(card.getSite().isEmpty()){
+            throw new ApiRequestException("site-Url can not be empty");
         }
+
         cardRespository.save(card);
     }
     @Transactional
@@ -64,11 +65,7 @@ public class CardService {
         }
 
         if(!Objects.equals(card.getSite(),site)){
-            if(card.getSite().equals( "null")){
-                card.setSite(null);
-            } else {
                 card.setSite(site);
-            }
         }
 
         if(icons != null && !icons.isEmpty() && !Objects.equals(card.getIcons(),icons)){
