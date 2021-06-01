@@ -35,9 +35,10 @@ public class CardController {
                            @RequestParam(required = false) String header,
                            @RequestParam(required = false) String paragraph,
                            @RequestParam(required = false) String github,
+                           @RequestParam(required = false) String site,
                            @RequestParam(required = false) List<String> icons)
             {
-        cardService.updateCard(cardId,image,header,paragraph,github,icons);
+        cardService.updateCard(cardId,image,header,paragraph,github, site,icons);
     }
 
 

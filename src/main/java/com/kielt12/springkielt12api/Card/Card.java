@@ -24,29 +24,39 @@ public class Card {
     @Lob
     private String paragraph;
     private String github;
+    private String site;
     @ElementCollection
     private List<String> icons;
     public Card() {
 
     }
 
-    public Card(String image, String header, String paragraph, String github, List<String> icons) {
-        this.image = image;
-        this.header = header;
-        this.paragraph = paragraph;
-        this.github = github;
-        this.icons = icons;
-    }
-
-    public Card(Long id, String image, String header, String paragraph, String github, List<String> icons) {
+    public Card(Long id, String image, String header, String paragraph, String github, String site, List<String> icons) {
         this.id = id;
         this.image = image;
         this.header = header;
         this.paragraph = paragraph;
         this.github = github;
+        this.site = site;
         this.icons = icons;
     }
 
+    public Card(String image, String header, String paragraph, String github, String site, List<String> icons) {
+        this.image = image;
+        this.header = header;
+        this.paragraph = paragraph;
+        this.github = github;
+        this.site = site;
+        this.icons = icons;
+    }
+
+    public String getSite() {
+        return site;
+    }
+
+    public void setSite(String site) {
+        this.site = site;
+    }
 
     public String getGithub() {
         return github;

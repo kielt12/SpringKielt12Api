@@ -38,10 +38,14 @@ public class CardService {
         if(card.getGithub() == null || card.getGithub().isEmpty()){
             throw new ApiRequestException("github-Url can not be empty");
         }
+
+        if(card.getSite() == null || card.getSite().isEmpty()){
+            throw new ApiRequestException("site-Url can not be empty");
+        }
         cardRespository.save(card);
     }
     @Transactional
-    public void updateCard(long cardId, String image, String header, String paragraph, String github, List<String> icons) {
+    public void updateCard(long cardId, String image, String header, String paragraph, String github, String site, List<String> icons) {
     Card card = cardRespository.findById(cardId).orElseThrow(()-> new IllegalStateException("card with id" + cardId + "does not exist"));
         if(image != null && image.length() > 0 && !Objects.equals(card.getImage(),image)){
             card.setImage(image);
@@ -59,9 +63,14 @@ public class CardService {
             card.setGithub(github);
         }
 
+        if(site!= null && site.length() > 0 && !Objects.equals(card.getSite(),site)){
+            card.setSite(site);
+        }
+
         if(icons != null && !icons.isEmpty() && !Objects.equals(card.getIcons(),icons)){
             card.setIcons(icons);
         }
 
     }
+
 }
