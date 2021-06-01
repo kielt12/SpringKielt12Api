@@ -63,10 +63,11 @@ public class CardService {
             card.setGithub(github);
         }
 
-        if(site!= null && site.length() > 0 && !Objects.equals(card.getSite(),site)){
-            card.setSite(site);
+        if(!Objects.equals(card.getSite(),site)){
             if(card.getSite().equals( "null")){
                 card.setSite(null);
+            } else {
+                card.setSite(site);
             }
         }
 
